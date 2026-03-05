@@ -1,0 +1,6 @@
+{
+ "from": "system",
+ "to": "user001",
+ "amount": 100,
+ "type": "genesis"
+}
