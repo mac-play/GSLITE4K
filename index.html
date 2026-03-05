@@ -1,0 +1,32 @@
+<input id="userid" placeholder="Digite seu ID">
+<button onclick="login()">Entrar</button>
+
+<div id="resultado"></div>
+
+<script>
+
+async function login(){
+
+ let id = document.getElementById("userid").value;
+
+ let res = await fetch("index/users.json");
+ let users = await res.json();
+
+ if(users[id]){
+
+   let perfil = await fetch("users/"+id+".json");
+   let data = await perfil.json();
+
+   document.getElementById("resultado").innerHTML =
+   "Usuário: "+data.username;
+
+ }else{
+
+   document.getElementById("resultado").innerHTML =
+   "ID não encontrado";
+
+ }
+
+}
+
+</script>
